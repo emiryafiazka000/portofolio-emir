@@ -1,0 +1,8 @@
+# Konfigurasi build Netlify
+# Netlify (gratis) tidak menjalankan server Express — jadi situs
+# di-render sekali menjadi statis lewat `npm run build` (lihat build.js),
+# lalu hasilnya dipublish dari folder `dist`.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
