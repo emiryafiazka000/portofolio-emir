@@ -1,0 +1,98 @@
+<section class="glass widget projects reveal" id="projects" aria-label="Proyek unggulan">
+  <div class="widget-head">
+    <h3 class="widget-title">Featured Projects</h3>
+    <span class="widget-badge"><%= projects.length %></span>
+  </div>
+
+  <div class="project-grid">
+    <% projects.forEach((p, i) => { %>
+      <article class="project-card hover-lift">
+        <!-- Media -->
+        <div class="project-media">
+          <img src="<%= p.image %>" alt="Thumbnail <%= p.title %>" loading="lazy" />
+          <span class="project-cat"><%= p.category %></span>
+          <button class="media-detail" type="button" data-project="<%= i %>" aria-label="Lihat detail <%= p.title %>">
+            Lihat Detail
+            <%- SVG('arrowRight', 'w-3 h-3') %>
+          </button>
+        </div>
+
+        <!-- Body -->
+        <div class="project-body">
+          <div class="project-head">
+            <h4 class="project-title"><%= p.title %></h4>
+          </div>
+          <p class="project-subtitle" style="color: <%= p.accent %>"><%= p.subtitle %></p>
+          <p class="project-desc"><%= p.description %></p>
+
+          <div class="project-tags">
+            <% p.tags.forEach(t => { %><span class="mini-chip"><%= t %></span><% }) %>
+          </div>
+
+          <button class="btn-details" type="button" data-project="<%= i %>">
+            Details
+            <%- SVG('arrowRight', 'w-3.5 h-3.5') %>
+          </button>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+</section>
+
+<% projects.forEach((p, i) => { %>
+  <!-- Modal detail: <%= p.title %> -->
+  <div class="detail-modal" id="project-modal-<%= i %>" role="dialog" aria-modal="true" aria-labelledby="detail-title-<%= i %>" hidden>
+    <div class="detail-backdrop" data-close-modal></div>
+
+    <div class="detail-window" role="document">
+      <header class="detail-header">
+        <span class="detail-cat"><%= p.category %></span>
+        <button class="detail-close" type="button" data-close-modal aria-label="Tutup detail">
+          <%- SVG('close', 'w-4 h-4') %>
+        </button>
+      </header>
+
+      <div class="detail-content">
+        <h2 class="detail-title" id="detail-title-<%= i %>"><%= p.title %></h2>
+        <p class="detail-subtitle" style="color: <%= p.accent %>"><%= p.subtitle %></p>
+
+        <% if (p.detail) { %>
+          <p class="detail-intro"><%= p.detail.intro %></p>
+
+          <section class="detail-section">
+            <h3>// PROBLEM</h3>
+            <p><%= p.detail.problem %></p>
+          </section>
+
+          <section class="detail-section">
+            <h3>// SOLUTION</h3>
+            <p><%= p.detail.solution %></p>
+          </section>
+
+          <% if (p.detail.features && p.detail.features.length) { %>
+            <section class="detail-section">
+              <h3>// FEATURES</h3>
+              <ul class="detail-features">
+                <% p.detail.features.forEach(f => { %>
+                  <li>
+                    <span class="feature-check"><%- SVG('check', 'w-3 h-3') %></span>
+                    <span><%= f %></span>
+                  </li>
+                <% }) %>
+              </ul>
+            </section>
+          <% } %>
+
+          <% if (p.detail.technology && p.detail.technology.length) { %>
+            <section class="detail-section">
+              <h3>// TECHNOLOGY</h3>
+              <div class="detail-tech">
+                <% p.detail.technology.forEach(t => { %><span class="mini-chip"><%= t %></span><% }) %>
+              </div>
+            </section>
+          <% } %>
+        <% } %>
+      </div>
+    </div>
+  </div>
+<% }) %>

@@ -1,0 +1,29 @@
+{
+  "name": "portfolio-app",
+  "version": "1.0.0",
+  "description": "Full-stack portfolio website with iOS glassmorphism design (Express + EJS)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "express",
+    "ejs",
+    "glassmorphism",
+    "nodejs"
+  ],
+  "author": "Emir Yafi",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  }
+}

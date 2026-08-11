@@ -1,0 +1,33 @@
+<section class="glass widget contact reveal" id="contact" aria-label="Kontak">
+  <div class="widget-head">
+    <h3 class="widget-title">Contact</h3>
+    <span class="live-badge"><span class="live-dot" aria-hidden="true"></span> Online</span>
+  </div>
+
+  <div class="contact-head">
+    <h4 class="contact-heading"><%= contact.heading %></h4>
+    <p class="contact-sub"><%= contact.subtext %></p>
+  </div>
+
+  <!-- Kartu besar: ajakan terhubung + 3 kartu kontak -->
+  <div class="connect-wrap glass-sub">
+    <span class="connect-tag">&gt; <%= contact.tag %></span>
+    <h5 class="connect-title"><%= contact.title %></h5>
+    <p class="connect-sub"><%= contact.subtitle %></p>
+
+    <div class="connect-cards">
+      <% socials.filter(s => s.icon === 'whatsapp' || s.icon === 'mail' || s.icon === 'github').forEach(s => { %>
+        <a class="connect-card hover-lift" href="<%= s.url %>" target="_blank" rel="noopener" data-icon="<%= s.icon %>">
+          <span class="connect-card-top">
+            <span class="connect-icon"><%- SVG(s.icon, 'w-4 h-4') %></span>
+            <%- SVG('arrow', 'w-3.5 h-3.5 connect-arrow') %>
+          </span>
+          <span class="connect-label"><%= s.name.toUpperCase() %></span>
+          <span class="connect-value"><%= s.value %></span>
+        </a>
+      <% }) %>
+    </div>
+
+    <p class="connect-note"><%= contact.note %></p>
+  </div>
+</section>

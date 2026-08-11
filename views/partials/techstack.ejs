@@ -1,0 +1,26 @@
+<section class="glass widget techstack reveal" id="tech" aria-label="Tech stack">
+  <div class="widget-head">
+    <h3 class="widget-title">Tech Stack</h3>
+    <span class="widget-badge"><%= techStack.reduce((sum, g) => sum + g.items.length, 0) %></span>
+  </div>
+  <p class="widget-sub">Tools &amp; teknologi yang kupakai setiap hari</p>
+
+  <div class="tech-groups">
+    <% techStack.forEach((group, gi) => { %>
+      <div class="tech-group">
+        <h4 class="tech-group-label">
+          <%- SVG(group.icon, 'tech-group-icon') %>
+          <%= group.category %>
+        </h4>
+        <div class="chips">
+          <% group.items.forEach((item, i) => { %>
+            <span class="chip" tabindex="0" style="--hue: <%= (195 + gi * 60 + i * 22) % 360 %>">
+              <img class="chip-logo" src="<%= item.logo %>" alt="" loading="lazy" />
+              <span class="chip-name"><%= item.name %></span>
+            </span>
+          <% }) %>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</section>

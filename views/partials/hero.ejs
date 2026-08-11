@@ -1,0 +1,54 @@
+<section class="hero reveal" id="hero" aria-label="Profil">
+  <span class="hero-status">
+    <span class="status-dot" aria-hidden="true"></span>
+    <span class="hero-status-text"><%= profile.status %></span>
+  </span>
+
+  <div class="hero-split">
+    <div class="hero-id">
+      <h2 class="hero-name"><%= profile.name %></h2>
+      <p class="hero-role font-mono"><%= profile.role %></p>
+    </div>
+
+    <div class="hero-desc">
+      <p class="hero-tagline"><%= profile.tagline %></p>
+      <p class="hero-bio"><%= profile.bio %></p>
+      <div class="hero-meta">
+        <span class="meta-chip">
+          <%- SVG('pin', 'w-3.5 h-3.5') %>
+          <span><%= profile.location %></span>
+        </span>
+        <a class="meta-chip" href="mailto:<%= profile.email %>">
+          <%- SVG('mail', 'w-3.5 h-3.5') %>
+          <span class="truncate"><%= profile.email %></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-stats">
+      <% profile.stats.forEach((s, i) => { %>
+        <div class="stat glass-sub reveal" style="--i: <%= i %>">
+          <span class="stat-value"><%= s.value %></span>
+          <span class="stat-label"><%= s.label %></span>
+        </div>
+      <% }) %>
+    </div>
+
+    <div class="hero-actions">
+      <div class="hero-socials">
+        <% socials.filter(s => s.icon === 'linkedin' || s.icon === 'behance').forEach(s => { %>
+          <a class="soc-btn" href="<%= s.url %>" target="_blank" rel="noopener" aria-label="<%= s.name %>">
+            <%- SVG(s.icon, 'w-4 h-4') %>
+            <span><%= s.name %></span>
+          </a>
+        <% }) %>
+      </div>
+      <a class="hero-contact" href="#contact">
+        <%- SVG('send', 'w-4 h-4') %>
+        Contact me
+      </a>
+    </div>
+  </div>
+</section>

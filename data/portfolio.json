@@ -1,0 +1,155 @@
+{
+  "_notes": "Semua teks & link di website ini diambil dari file ini. Edit bebas tanpa sentuh kode. Ganti nomor WhatsApp, email, domain, avatar, dan thumbnail proyek di sini. Untuk tiap project: title, subtitle, accent (warna subtitle, format hex), category (badge di foto), description, image (path foto), tags, dan detail { intro, problem, solution, features[], technology[] } yang tampil di modal saat tombol Details diklik.",
+  "site": {
+    "title": "EMIR YAFI",
+    "domain": "www.emiryafi.dev",
+    "navDomain": "www.emiryafi.dev"
+  },
+  "profile": {
+    "name": "Emir Yafi Azka",
+    "role": "Student Developer & Software Engineer",
+    "status": "Available For Learning & Collaboration",
+    "location": "SMK JAKARTA PUSAT 1 - REKAYASA PERANGKAT LUNAK",
+    "avatar": "/images/avatar.svg",
+    "tagline": "Crafting clean, fast & delightful web experiences",
+    "bio": "I'm a Student Developer and Software Engineer who loves turning ideas into real products — dari design sampai deployment. Fokus utama di modern web apps pakai Node.js dan selalu tertarik dengan tantangan baru. Let's build something great together!",
+    "email": "emiryafiazka@gmail.com",
+    "phone": "0895396609922",
+    "stats": [
+      { "value": "2+", "label": "Years Experience" },
+      { "value": "3", "label": "Projects Completed" },
+      { "value": "Multiple", "label": "Technologies" }
+    ]
+  },
+  "socials": [
+    {
+      "name": "WhatsApp",
+      "icon": "whatsapp",
+      "url": "https://wa.me/62895396609922",
+      "hint": "Fastest response",
+      "value": "0895 3966 0992"
+    },
+    {
+      "name": "Email",
+      "icon": "mail",
+      "url": "mailto:emiryafiazka@gmail.com",
+      "hint": "Formal inquiries",
+      "value": "emiryafiazka@gmail.com"
+    },
+    {
+      "name": "LinkedIn",
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/in/emiryafi",
+      "hint": "Professional network"
+    },
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/emiryafiazka000",
+      "hint": "Open source & code",
+      "value": "emiryafiazka000"
+    },
+    {
+      "name": "Behance",
+      "icon": "behance",
+      "url": "https://www.behance.net/emiryafi",
+      "hint": "Design portfolio"
+    }
+  ],
+  "techStack": [
+    {
+      "category": "Programming",
+      "icon": "code",
+      "items": [
+        { "name": "JavaScript", "logo": "/images/tech/javascript.svg" },
+        { "name": "HTML", "logo": "/images/tech/html.svg" },
+        { "name": "CSS", "logo": "/images/tech/css.svg" },
+        { "name": "Dart", "logo": "/images/tech/dart.svg" },
+        { "name": "PHP", "logo": "/images/tech/php.svg" }
+      ]
+    },
+    {
+      "category": "Database",
+      "icon": "database",
+      "items": [
+        { "name": "MySQL", "logo": "/images/tech/mysql.svg" }
+      ]
+    },
+    {
+      "category": "Framework",
+      "icon": "package",
+      "items": [
+        { "name": "Flutter", "logo": "/images/tech/flutter.svg" },
+        { "name": "Node.js", "logo": "/images/tech/nodejs.svg" }
+      ]
+    }
+  ],
+  "about": {
+    "text": "Halo! Aku Emir Yafi Azka, siswa SMK Jakarta Pusat 1 jurusan Rekayasa Perangkat Lunak (RPL). Aku senang mengubah ide menjadi produk nyata — dari desain sampai kode. Fokus utamaku di web development (Node.js & Flutter), dan aku juga aktif di dunia desain grafis. Selalu haus akan hal baru dan siap menghadapi tantangan apa pun! 🚀",
+    "interests": ["Web Development", "Mobile Apps", "UI/UX Design", "Desain Grafis"],
+    "achievement": {
+      "label": "Achievement",
+      "title": "Peserta Lomba Desain Grafis",
+      "detail": "Tingkat Jakarta Pusat",
+      "year": "2025"
+    }
+  },
+  "projects": [
+    {
+      "title": "Kapan Beli",
+      "subtitle": "Kitchen Inventory Web App",
+      "accent": "#2f81f7",
+      "category": "Web Development · Inventory App",
+      "description": "Aplikasi pencatatan & pemantauan stok bahan dapur secara real-time, lengkap dengan saran belanja otomatis sebelum bahan habis.",
+      "image": "/images/projects/kapanbeli.png",
+      "tags": ["JavaScript", "MySQL"],
+      "detail": {
+        "intro": "Kapan Beli adalah aplikasi web pencatatan bahan dapur yang kubangun untuk mempelajari pengembangan web full-stack. Fokus utamanya adalah membantu keluarga memantau stok bahan secara real-time dan merencanakan belanja sebelum bahan habis.",
+        "problem": "Bahan dapur sering habis tanpa disadari, sehingga belanja jadi boros, makanan terbuang, dan stok menipis atau kadaluarsa baru terlihat saat sudah terlambat.",
+        "solution": "Membangun aplikasi pencatatan stok dengan pemantauan real-time, statistik stok menipis & kadaluarsa, serta saran belanja otomatis yang muncul sebelum bahan benar-benar habis.",
+        "features": ["Pantau stok bahan real-time", "Saran belanja otomatis", "Statistik stok menipis", "Peringatan bahan kadaluarsa"],
+        "technology": ["JavaScript", "MySQL", "HTML", "CSS"]
+      }
+    },
+    {
+      "title": "Quote of the Day",
+      "subtitle": "Daily Inspiration Mobile App",
+      "accent": "#8b5cf6",
+      "category": "Mobile Development · Inspiration App",
+      "description": "Aplikasi inspirasi harian dengan quote pilihan, kategori WISDOM, fitur simpan favorit, salin, terjemah, dan auto-refresh.",
+      "image": "/images/projects/quote_of_the_day.png",
+      "tags": ["Flutter", "Dart"],
+      "detail": {
+        "intro": "Quote of the Day adalah aplikasi inspirasi harian yang kubangun dengan Flutter. Dibuat untuk menampilkan quote bijak setiap hari dengan tampilan yang nyaman, plus fitur simpan favorit agar kutipan kesukaan bisa dilihat lagi kapan saja.",
+        "problem": "Sulit menemukan kata-kata inspiratif yang relevan setiap hari, dan quote bagus sering hilang karena tidak ada tempat untuk menyimpannya.",
+        "solution": "Membangun aplikasi Flutter yang menampilkan quote harian dari berbagai kategori, lengkap dengan fitur simpan favorit, salin, terjemah, dan auto-refresh otomatis.",
+        "features": ["Quote harian + kategori", "Simpan favorit & salin", "Terjemah otomatis", "Auto-refresh berkala"],
+        "technology": ["Flutter", "Dart"]
+      }
+    },
+    {
+      "title": "Watchout",
+      "subtitle": "Smartwatch Landing Page",
+      "accent": "#6347f9",
+      "category": "Web Development · Landing Page",
+      "description": "Landing page penjualan smartwatch premium — fitur monitor jantung, GPS, notifikasi, tahan air 5ATM, pilihan warna & spesifikasi detail.",
+      "image": "/images/projects/watchout.png",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "detail": {
+        "intro": "Watchout adalah landing page penjualan smartwatch dengan konsep futuristik dan responsif. Project ini kubangun untuk melatih penguasaan HTML, CSS, dan JavaScript murni dalam menyusun halaman marketing yang menarik.",
+        "problem": "Landing page produk perlu menyampaikan banyak informasi — fitur, spesifikasi, dan pilihan warna — tanpa terasa membingungkan bagi calon pembeli.",
+        "solution": "Menyusun landing page dengan seksi fitur unggulan, pemilih warna, dan tabel spesifikasi yang jelas, ditutup CTA beli yang tegas agar pengunjung mudah mengambil keputusan.",
+        "features": ["Fitur unggulan: jantung, GPS, notifikasi, 5ATM", "Pilihan warna & spesifikasi detail", "Desain modern dengan CTA beli", "Tampilan responsif"],
+        "technology": ["HTML", "CSS", "JavaScript"]
+      }
+    }
+  ],
+  "contact": {
+    "heading": "Let's Connect",
+    "subtext": "Punya ide project, ingin berkolaborasi, atau sekadar ingin terhubung? Jangan ragu untuk menghubungi saya.",
+    "tag": "open to collaboration",
+    "title": "Siap membangun project berikutnya bersama?",
+    "subtitle": "Pilih cara yang paling nyaman untuk terhubung — diskusi, kolaborasi belajar, atau sekadar bertukar ide tentang teknologi.",
+    "note": "biasanya membalas dalam 1-2 hari — terima kasih sudah mampir 🌊"
+  }
+}

@@ -1,0 +1,24 @@
+<section class="glass widget about reveal" id="about" aria-label="Tentang saya">
+  <div class="widget-head">
+    <h3 class="widget-title">About Me</h3>
+  </div>
+
+  <p class="about-text"><%= about.text %></p>
+
+  <div class="about-chips">
+    <% about.interests.forEach((interest) => { %>
+      <span class="mini-chip"><%= interest %></span>
+    <% }) %>
+  </div>
+
+  <div class="about-achievement glass-sub hover-lift">
+    <span class="about-ach-icon" aria-hidden="true">
+      <%- SVG('trophy', 'w-5 h-5') %>
+    </span>
+    <div class="about-ach-body">
+      <span class="about-ach-label"><%= about.achievement.label %></span>
+      <h4 class="about-ach-title"><%= about.achievement.title %></h4>
+      <p class="about-ach-detail"><%= about.achievement.detail %><% if (about.achievement.year) { %> · <%= about.achievement.year %><% } %></p>
+    </div>
+  </div>
+</section>
