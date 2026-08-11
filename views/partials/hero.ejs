@@ -38,7 +38,7 @@
 
     <div class="hero-actions">
       <div class="hero-socials">
-        <% socials.filter(s => s.icon === 'linkedin' || s.icon === 'behance').forEach(s => { %>
+        <% socials.filter(s => ['whatsapp', 'mail', 'github'].includes(s.icon)).forEach(s => { %>
           <a class="soc-btn" href="<%= s.url %>" target="_blank" rel="noopener" aria-label="<%= s.name %>">
             <%- SVG(s.icon, 'w-4 h-4') %>
             <span><%= s.name %></span>

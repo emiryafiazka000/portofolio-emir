@@ -37,23 +37,11 @@
       "value": "emiryafiazka@gmail.com"
     },
     {
-      "name": "LinkedIn",
-      "icon": "linkedin",
-      "url": "https://www.linkedin.com/in/emiryafi",
-      "hint": "Professional network"
-    },
-    {
       "name": "GitHub",
       "icon": "github",
       "url": "https://github.com/emiryafiazka000",
       "hint": "Open source & code",
       "value": "emiryafiazka000"
-    },
-    {
-      "name": "Behance",
-      "icon": "behance",
-      "url": "https://www.behance.net/emiryafi",
-      "hint": "Design portfolio"
     }
   ],
   "techStack": [
@@ -89,7 +77,7 @@
     "interests": ["Web Development", "Mobile Apps", "UI/UX Design", "Desain Grafis"],
     "achievement": {
       "label": "Achievement",
-      "title": "Peserta Lomba Desain Grafis",
+      "title": "Peserta Lomba LKS Desain Grafis",
       "detail": "Tingkat Jakarta Pusat",
       "year": "2025"
     }
