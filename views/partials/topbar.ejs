@@ -17,9 +17,17 @@
   </div>
 
   <!-- Mockup URL bar -->
-  <a class="urlbar font-mono" href="https://<%= domain %>" target="_blank" rel="noopener" title="Buka <%= domain %>">
+  <%
+    /* Normalisasi domain: boleh berformat "www.domain.com" atau
+       "https://www.domain.com/" — di urlbar ditampilkan tanpa protokol,
+       dan href dibangun aman tanpa dobel "https://". */
+    const rawDomain = String(domain || '');
+    const domainLabel = rawDomain.replace(/^https?:\/\//i, '').replace(/\/+$/, '');
+    const domainHref = /^https?:\/\//i.test(rawDomain) ? rawDomain : 'https://' + rawDomain;
+  %>
+  <a class="urlbar font-mono" href="<%= domainHref %>" target="_blank" rel="noopener" title="Buka <%= domainLabel %>">
     <%- SVG('lock', 'w-3 h-3') %>
-    <span class="truncate"><%= domain %></span>
+    <span class="truncate"><%= domainLabel %></span>
     <%- SVG('arrowRight', 'w-3 h-3') %>
   </a>
 

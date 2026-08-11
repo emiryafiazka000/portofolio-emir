@@ -2,8 +2,8 @@
   "_notes": "Semua teks & link di website ini diambil dari file ini. Edit bebas tanpa sentuh kode. Ganti nomor WhatsApp, email, domain, avatar, dan thumbnail proyek di sini. Untuk tiap project: title, subtitle, accent (warna subtitle, format hex), category (badge di foto), description, image (path foto), tags, dan detail { intro, problem, solution, features[], technology[] } yang tampil di modal saat tombol Details diklik.",
   "site": {
     "title": "EMIR YAFI",
-    "domain": "www.emiryafi.dev",
-    "navDomain": "www.emiryafi.dev"
+    "domain": "https://portoemir.netlify.app/",
+    "navDomain": "https://portoemir.netlify.app/"
   },
   "profile": {
     "name": "Emir Yafi Azka",
