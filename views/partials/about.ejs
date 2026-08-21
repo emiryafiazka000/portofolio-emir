@@ -1,24 +1,66 @@
 <section class="glass widget about reveal" id="about" aria-label="Tentang saya">
   <div class="widget-head">
     <h3 class="widget-title">About Me</h3>
+    <span class="widget-badge">Introduction</span>
   </div>
 
-  <p class="about-text"><%= about.text %></p>
+  <div class="about-grid">
+    <!-- Narasi utama -->
+    <div class="about-main">
+      <p class="about-text"><%= about.text %></p>
 
-  <div class="about-chips">
-    <% about.interests.forEach((interest) => { %>
-      <span class="mini-chip"><%= interest %></span>
-    <% }) %>
-  </div>
-
-  <div class="about-achievement glass-sub hover-lift">
-    <span class="about-ach-icon" aria-hidden="true">
-      <%- SVG('trophy', 'w-5 h-5') %>
-    </span>
-    <div class="about-ach-body">
-      <span class="about-ach-label"><%= about.achievement.label %></span>
-      <h4 class="about-ach-title"><%= about.achievement.title %></h4>
-      <p class="about-ach-detail"><%= about.achievement.detail %><% if (about.achievement.year) { %> · <%= about.achievement.year %><% } %></p>
+      <div class="about-chips">
+        <span class="about-chips-label">
+          <%- SVG('code', 'about-chips-icon') %>
+          Fokus Saya
+        </span>
+        <div class="about-chips-list">
+          <% about.interests.forEach((interest) => { %>
+            <span class="mini-chip"><%= interest %></span>
+          <% }) %>
+        </div>
+      </div>
     </div>
+
+    <!-- Sidebar: statistik, pencapaian & fakta singkat -->
+    <aside class="about-side">
+      <div class="about-stats glass-sub">
+        <% profile.stats.forEach((s, i) => { %>
+          <div class="about-stat-item">
+            <span class="about-stat-value"><%= s.value %></span>
+            <span class="about-stat-label"><%= s.label %></span>
+          </div>
+        <% }) %>
+      </div>
+
+      <div class="about-achievement glass-sub hover-lift">
+        <span class="about-ach-icon" aria-hidden="true">
+          <%- SVG('trophy', 'w-5 h-5') %>
+        </span>
+        <div class="about-ach-body">
+          <span class="about-ach-label"><%= about.achievement.label %></span>
+          <h4 class="about-ach-title"><%= about.achievement.title %></h4>
+          <p class="about-ach-detail"><%= about.achievement.detail %><% if (about.achievement.year) { %> · <%= about.achievement.year %><% } %></p>
+        </div>
+      </div>
+
+      <div class="about-facts glass-sub">
+        <span class="about-facts-label">Quick Facts</span>
+        <ul class="about-facts-list">
+          <li>
+            <span class="fact-key"><%- SVG('pin', 'w-3.5 h-3.5') %> Sekolah</span>
+            <span class="fact-value"><%= profile.location %></span>
+          </li>
+          <li>
+            <span class="fact-key"><%- SVG('mail', 'w-3.5 h-3.5') %> Email</span>
+            <span class="fact-value"><%= profile.email %></span>
+          </li>
+          <li>
+            <span class="fact-key"><%- SVG('globe', 'w-3.5 h-3.5') %> Status</span>
+            <span class="fact-value"><%= profile.status %></span>
+          </li>
+        </ul>
+      </div>
+    </aside>
   </div>
 </section>

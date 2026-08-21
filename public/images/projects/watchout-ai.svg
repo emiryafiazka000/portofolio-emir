@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="100%" stop-color="#0f1a3a"/>
+    </linearGradient>
+    <linearGradient id="watch-face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#0a0a1a"/>
+    </linearGradient>
+    <filter id="blur3"><feGaussianBlur stdDeviation="20"/></filter>
+    <filter id="glow3"><feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg3)"/>
+  <circle cx="400" cy="250" r="180" fill="#6347f9" opacity="0.06" filter="url(#blur3)"/>
+  <circle cx="650" cy="100" r="120" fill="#8ba7ff" opacity="0.04" filter="url(#blur3)"/>
+  <!-- Grid -->
+  <g opacity="0.03" stroke="#fff" stroke-width="0.5">
+    <line x1="0" y1="0" x2="0" y2="500"/><line x1="50" y1="0" x2="50" y2="500"/><line x1="100" y1="0" x2="100" y2="500"/><line x1="150" y1="0" x2="150" y2="500"/><line x1="200" y1="0" x2="200" y2="500"/><line x1="250" y1="0" x2="250" y2="500"/><line x1="300" y1="0" x2="300" y2="500"/><line x1="350" y1="0" x2="350" y2="500"/><line x1="400" y1="0" x2="400" y2="500"/><line x1="450" y1="0" x2="450" y2="500"/><line x1="500" y1="0" x2="500" y2="500"/><line x1="550" y1="0" x2="550" y2="500"/><line x1="600" y1="0" x2="600" y2="500"/><line x1="650" y1="0" x2="650" y2="500"/><line x1="700" y1="0" x2="700" y2="500"/><line x1="750" y1="0" x2="750" y2="500"/><line x1="800" y1="0" x2="800" y2="500"/>
+    <line x1="0" y1="0" x2="800" y2="0"/><line x1="0" y1="50" x2="800" y2="50"/><line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="150" x2="800" y2="150"/><line x1="0" y1="200" x2="800" y2="200"/><line x1="0" y1="250" x2="800" y2="250"/><line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="350" x2="800" y2="350"/><line x1="0" y1="400" x2="800" y2="400"/><line x1="0" y1="450" x2="800" y2="450"/><line x1="0" y1="500" x2="800" y2="500"/>
+  </g>
+  <!-- Watch body -->
+  <rect x="310" y="80" width="180" height="220" rx="36" fill="url(#watch-face)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+  <rect x="320" y="90" width="160" height="200" rx="28" fill="rgba(0,0,0,0.4)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <!-- Watch crown button -->
+  <rect x="490" y="160" width="12" height="30" rx="4" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <!-- Watch strap top -->
+  <rect x="345" y="40" width="110" height="50" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <!-- Watch strap bottom -->
+  <rect x="345" y="290" width="110" height="50" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <!-- Watch face content — Heart rate -->
+  <text x="400" y="140" text-anchor="middle" fill="#ff6b6b" font-family="system-ui" font-size="10" font-weight="600" filter="url(#glow3)">♥ HEART RATE</text>
+  <text x="400" y="180" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="32" font-weight="800">72</text>
+  <text x="400" y="198" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="system-ui" font-size="10">BPM</text>
+  <!-- Mini heart rate graph -->
+  <polyline points="340,215 355,215 360,205 365,220 370,210 375,218 380,215 395,215 400,200 405,225 410,210 415,218 420,215 435,215 445,215 450,215 460,215" fill="none" stroke="#ff6b6b" stroke-width="1.5" opacity="0.7"/>
+  <!-- Bottom stats -->
+  <text x="370" y="250" text-anchor="middle" fill="#34d399" font-family="system-ui" font-size="10" font-weight="600">5.2 km</text>
+  <text x="400" y="260" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="system-ui" font-size="7">DISTANCE</text>
+  <line x1="400" y1="240" x2="400" y2="270" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="430" y="250" text-anchor="middle" fill="#ffd166" font-family="system-ui" font-size="10" font-weight="600">420</text>
+  <text x="430" y="260" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="system-ui" font-size="7">CAL</text>
+  <!-- Feature cards around watch -->
+  <!-- GPS Card -->
+  <rect x="80" y="140" width="170" height="80" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <circle cx="110" cy="170" r="16" fill="rgba(99,71,249,0.2)" stroke="rgba(99,71,249,0.4)" stroke-width="1"/>
+  <text x="110" y="175" text-anchor="middle" fill="#6347f9" font-size="12">📍</text>
+  <text x="140" y="170" fill="rgba(255,255,255,0.8)" font-family="system-ui" font-size="11" font-weight="600">GPS Tracking</text>
+  <text x="140" y="188" fill="rgba(255,255,255,0.4)" font-family="system-ui" font-size="9">Real-time location</text>
+  <!-- Notification Card -->
+  <rect x="80" y="240" width="170" height="80" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <circle cx="110" cy="270" r="16" fill="rgba(139,167,255,0.2)" stroke="rgba(139,167,255,0.4)" stroke-width="1"/>
+  <text x="110" y="275" text-anchor="middle" fill="#8ba7ff" font-size="12">🔔</text>
+  <text x="140" y="270" fill="rgba(255,255,255,0.8)" font-family="system-ui" font-size="11" font-weight="600">Notifications</text>
+  <text x="140" y="288" fill="rgba(255,255,255,0.4)" font-family="system-ui" font-size="9">Smart alerts</text>
+  <!-- Water Resistance Card -->
+  <rect x="550" y="160" width="170" height="80" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <circle cx="580" cy="190" r="16" fill="rgba(52,211,153,0.2)" stroke="rgba(52,211,153,0.4)" stroke-width="1"/>
+  <text x="580" y="195" text-anchor="middle" fill="#34d399" font-size="12">💧</text>
+  <text x="610" y="190" fill="rgba(255,255,255,0.8)" font-family="system-ui" font-size="11" font-weight="600">5ATM Water</text>
+  <text x="610" y="208" fill="rgba(255,255,255,0.4)" font-family="system-ui" font-size="9">Swim-proof design</text>
+  <!-- Battery Card -->
+  <rect x="550" y="260" width="170" height="80" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <circle cx="580" cy="290" r="16" fill="rgba(255,209,102,0.2)" stroke="rgba(255,209,102,0.4)" stroke-width="1"/>
+  <text x="580" y="295" text-anchor="middle" fill="#ffd166" font-size="12">⚡</text>
+  <text x="610" y="290" fill="rgba(255,255,255,0.8)" font-family="system-ui" font-size="11" font-weight="600">All-Day Battery</text>
+  <text x="610" y="308" fill="rgba(255,255,255,0.4)" font-family="system-ui" font-size="9">48h+ battery life</text>
+  <!-- Connecting lines -->
+  <line x1="250" y1="180" x2="310" y2="180" stroke="rgba(99,71,249,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="250" y1="280" x2="310" y2="280" stroke="rgba(139,167,255,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="490" y1="200" x2="550" y2="200" stroke="rgba(52,211,153,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="490" y1="300" x2="550" y2="300" stroke="rgba(255,209,102,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+</svg>

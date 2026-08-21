@@ -79,7 +79,7 @@
       "label": "Achievement",
       "title": "Peserta Lomba LKS Desain Grafis",
       "detail": "Tingkat Jakarta Pusat",
-      "year": "2025"
+      "year": "2026"
     }
   },
   "projects": [
@@ -90,6 +90,7 @@
       "category": "Web Development · Inventory App",
       "description": "Aplikasi pencatatan & pemantauan stok bahan dapur secara real-time, lengkap dengan saran belanja otomatis sebelum bahan habis.",
       "image": "/images/projects/kapanbeli.png",
+      "aiImage": "/images/projects/kapanbeli-ai.svg",
       "tags": ["JavaScript", "MySQL"],
       "detail": {
         "intro": "Kapan Beli adalah aplikasi web pencatatan bahan dapur yang kubangun untuk mempelajari pengembangan web full-stack. Fokus utamanya adalah membantu keluarga memantau stok bahan secara real-time dan merencanakan belanja sebelum bahan habis.",
@@ -106,6 +107,7 @@
       "category": "Mobile Development · Inspiration App",
       "description": "Aplikasi inspirasi harian dengan quote pilihan, kategori WISDOM, fitur simpan favorit, salin, terjemah, dan auto-refresh.",
       "image": "/images/projects/quote_of_the_day.png",
+      "aiImage": "/images/projects/quote-ai.svg",
       "tags": ["Flutter", "Dart"],
       "detail": {
         "intro": "Quote of the Day adalah aplikasi inspirasi harian yang kubangun dengan Flutter. Dibuat untuk menampilkan quote bijak setiap hari dengan tampilan yang nyaman, plus fitur simpan favorit agar kutipan kesukaan bisa dilihat lagi kapan saja.",
@@ -122,6 +124,7 @@
       "category": "Web Development · Landing Page",
       "description": "Landing page penjualan smartwatch premium — fitur monitor jantung, GPS, notifikasi, tahan air 5ATM, pilihan warna & spesifikasi detail.",
       "image": "/images/projects/watchout.png",
+      "aiImage": "/images/projects/watchout-ai.svg",
       "tags": ["HTML", "CSS", "JavaScript"],
       "detail": {
         "intro": "Watchout adalah landing page penjualan smartwatch dengan konsep futuristik dan responsif. Project ini kubangun untuk melatih penguasaan HTML, CSS, dan JavaScript murni dalam menyusun halaman marketing yang menarik.",

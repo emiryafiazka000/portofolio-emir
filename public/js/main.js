@@ -121,4 +121,133 @@
     }
   });
 
+  /* ── 6. Typewriter LOOP: type → delete → type → delete → … ── */
+  const roleTextEl = document.querySelector('.hero-role-text');
+  const roleCursorEl = document.querySelector('.hero-role-cursor');
+  if (roleTextEl && roleCursorEl && !prefersReduced) {
+    const phrases = ['Student Developer', 'Software Engineer'];
+    const typeSpeed = 80;   // ms per char saat mengetik
+    const deleteSpeed = 40;  // ms per char saat menghapus
+    const pauseAfterType = 1800;  // jeda setelah selesai ketik
+    const pauseAfterDelete = 400;  // jeda setelah selesai hapus
+    let phraseIndex = 0;
+
+    function typePhrase() {
+      const current = phrases[phraseIndex];
+      let charIndex = 0;
+      roleCursorEl.style.display = 'inline-block';
+
+      // Ketik huruf satu-satu
+      function typeChar() {
+        if (charIndex < current.length) {
+          roleTextEl.textContent += current[charIndex];
+          charIndex++;
+          setTimeout(typeChar, typeSpeed);
+        } else {
+          // Selesai ketik → jeda → hapus
+          setTimeout(deletePhrase, pauseAfterType);
+        }
+      }
+
+      // Hapus huruf satu-satu
+      function deletePhrase() {
+        if (roleTextEl.textContent.length > 0) {
+          roleTextEl.textContent = roleTextEl.textContent.slice(0, -1);
+          setTimeout(deletePhrase, deleteSpeed);
+        } else {
+          // Selesai hapus → ganti phrase → jeda → ketik lagi
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(typePhrase, pauseAfterDelete);
+        }
+      }
+
+      typeChar();
+    }
+
+    // Mulai setelah delay awal
+    setTimeout(typePhrase, 800);
+  }
+
+  /* ── 7. Scrollspy: liquid radio nav — highlight & slide indicator ── */
+  const liquidNav = document.getElementById('liquidNav');
+  const navLinks = liquidNav ? Array.from(liquidNav.querySelectorAll('.liquid-radio-item[href^="#"]')) : [];
+  const spySections = ['about', 'projects', 'contact']
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+  const heroSection = document.getElementById('hero');
+
+  function setActiveNav(sectionId) {
+    navLinks.forEach((l) => l.classList.toggle('active', l.getAttribute('href') === '#' + sectionId));
+    if (liquidNav) liquidNav.setAttribute('data-active', sectionId || 'about');
+  }
+
+  if (navLinks.length && spySections.length && 'IntersectionObserver' in window && !prefersReduced) {
+    const spy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          if (entry.target === heroSection) {
+            setActiveNav('about');
+          } else {
+            const link = navLinks.find((l) => l.getAttribute('href') === '#' + entry.target.id);
+            if (link) {
+              setActiveNav(entry.target.id);
+            }
+          }
+        });
+      },
+      { rootMargin: '-35% 0px -60% 0px' }
+    );
+    spySections.forEach((s) => spy.observe(s));
+    if (heroSection) spy.observe(heroSection);
+  }
+
+  /* ── 8. Stacking Glass Cards — GSAP ScrollTrigger ── */
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && !prefersReduced) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const cards = document.querySelectorAll('.stacking-card');
+    const totalCards = cards.length;
+
+    cards.forEach((card, index) => {
+      const container = card.closest('.stacking-card-container');
+      if (!container) return;
+
+      // Scale: kartu terakhir tetap scale 1, kartu pertama paling kecil
+      const targetScale = 1 - (totalCards - 1 - index) * 0.08;
+
+      // Set awal: scale penuh
+      gsap.set(card, { scale: 1, transformOrigin: 'center top' });
+
+      // ScrollTrigger: scale down saat card di-scroll lewat
+      ScrollTrigger.create({
+        trigger: container,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+        onUpdate: (self) => {
+          // Saat container mulai scroll lewat, scale card turun
+          const progress = self.progress;
+          const newScale = gsap.utils.interpolate(1, targetScale, progress);
+          gsap.set(card, { scale: Math.max(newScale, targetScale) });
+        }
+      });
+    });
+
+    /* Fade-in saat pertama masuk viewport */
+    gsap.fromTo('.stacking-cards-wrapper',
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1.2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.stacking-cards-section',
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    );
+  }
+
 })();

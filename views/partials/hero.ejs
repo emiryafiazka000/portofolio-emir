@@ -1,54 +1,69 @@
 <section class="hero reveal" id="hero" aria-label="Profil">
-  <span class="hero-status">
-    <span class="status-dot" aria-hidden="true"></span>
-    <span class="hero-status-text"><%= profile.status %></span>
-  </span>
+  <div class="hero-center">
+    <span class="hero-status">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span class="hero-status-text"><%= profile.status %></span>
+    </span>
 
-  <div class="hero-split">
-    <div class="hero-id">
-      <h2 class="hero-name"><%= profile.name %></h2>
-      <p class="hero-role font-mono"><%= profile.role %></p>
-    </div>
+    <h2 class="hero-name"><%= profile.name %></h2>
+    <p class="hero-role font-mono"><span class="hero-role-text"></span><span class="hero-role-cursor"></span></p>
 
-    <div class="hero-desc">
-      <p class="hero-tagline"><%= profile.tagline %></p>
-      <p class="hero-bio"><%= profile.bio %></p>
-      <div class="hero-meta">
-        <span class="meta-chip">
-          <%- SVG('pin', 'w-3.5 h-3.5') %>
-          <span><%= profile.location %></span>
-        </span>
-        <a class="meta-chip" href="mailto:<%= profile.email %>">
-          <%- SVG('mail', 'w-3.5 h-3.5') %>
-          <span class="truncate"><%= profile.email %></span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-bottom">
-    <div class="hero-stats">
-      <% profile.stats.forEach((s, i) => { %>
-        <div class="stat glass-sub reveal" style="--i: <%= i %>">
-          <span class="stat-value"><%= s.value %></span>
-          <span class="stat-label"><%= s.label %></span>
-        </div>
-      <% }) %>
+    <div class="hero-meta">
+      <span class="meta-chip">
+        <%- SVG('pin', 'w-3.5 h-3.5') %>
+        <span><%= profile.location %></span>
+      </span>
+      <a class="meta-chip" href="mailto:<%= profile.email %>">
+        <%- SVG('mail', 'w-3.5 h-3.5') %>
+        <span class="truncate"><%= profile.email %></span>
+      </a>
     </div>
 
     <div class="hero-actions">
       <div class="hero-socials">
         <% socials.filter(s => ['whatsapp', 'mail', 'github'].includes(s.icon)).forEach(s => { %>
-          <a class="soc-btn" href="<%= s.url %>" target="_blank" rel="noopener" aria-label="<%= s.name %>">
+          <a class="soc-btn liquid-glass-btn" href="<%= s.url %>" target="_blank" rel="noopener" aria-label="<%= s.name %>">
             <%- SVG(s.icon, 'w-4 h-4') %>
             <span><%= s.name %></span>
           </a>
         <% }) %>
       </div>
-      <a class="hero-contact" href="#contact">
+      <a class="hero-contact liquid-glass-btn" href="#contact">
         <%- SVG('send', 'w-4 h-4') %>
         Contact me
       </a>
+    </div>
+
+    <!-- Tech Stack marquee -->
+    <%
+      const flatItems = [];
+      techStack.forEach((group, gi) => {
+        group.items.forEach((item, i) => {
+          flatItems.push({ ...item, hue: (195 + gi * 60 + i * 22) % 360 });
+        });
+      });
+    %>
+    <div class="hero-marquee">
+      <div class="marquee">
+        <div class="marquee-track">
+          <div class="marquee-group">
+            <% flatItems.forEach((item) => { %>
+              <span class="chip" tabindex="0" style="--hue: <%= item.hue %>">
+                <img class="chip-logo" src="<%= item.logo %>" alt="" loading="lazy" />
+                <span class="chip-name"><%= item.name %></span>
+              </span>
+            <% }) %>
+          </div>
+          <div class="marquee-group" aria-hidden="true">
+            <% flatItems.forEach((item) => { %>
+              <span class="chip" tabindex="-1" style="--hue: <%= item.hue %>">
+                <img class="chip-logo" src="<%= item.logo %>" alt="" loading="lazy" />
+                <span class="chip-name"><%= item.name %></span>
+              </span>
+            <% }) %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

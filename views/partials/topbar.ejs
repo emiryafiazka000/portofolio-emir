@@ -16,20 +16,15 @@
     </h1>
   </div>
 
-  <!-- Mockup URL bar -->
-  <%
-    /* Normalisasi domain: boleh berformat "www.domain.com" atau
-       "https://www.domain.com/" — di urlbar ditampilkan tanpa protokol,
-       dan href dibangun aman tanpa dobel "https://". */
-    const rawDomain = String(domain || '');
-    const domainLabel = rawDomain.replace(/^https?:\/\//i, '').replace(/\/+$/, '');
-    const domainHref = /^https?:\/\//i.test(rawDomain) ? rawDomain : 'https://' + rawDomain;
-  %>
-  <a class="urlbar font-mono" href="<%= domainHref %>" target="_blank" rel="noopener" title="Buka <%= domainLabel %>">
-    <%- SVG('lock', 'w-3 h-3') %>
-    <span class="truncate"><%= domainLabel %></span>
-    <%- SVG('arrowRight', 'w-3 h-3') %>
-  </a>
+  <!-- Navigasi section — liquid radio style -->
+  <nav class="liquid-radio" id="liquidNav" aria-label="Navigasi halaman" data-active="about">
+    <div class="liquid-radio-bg" aria-hidden="true"></div>
+    <div class="liquid-radio-glass" aria-hidden="true" style="filter: url('#radio-glass')"></div>
+    <div class="liquid-radio-indicator" id="navIndicator"></div>
+    <a href="#about" class="liquid-radio-item active" data-section="about">About</a>
+    <a href="#projects" class="liquid-radio-item" data-section="projects">Projects</a>
+    <a href="#contact" class="liquid-radio-item" data-section="contact">Contact</a>
+  </nav>
 
   <!-- Action icons -->
   <div class="topbar-actions">

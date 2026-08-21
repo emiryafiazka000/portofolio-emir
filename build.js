@@ -43,7 +43,6 @@ const renderPage = ejs.compile(
 
 const html = renderPage({
   portfolio,
-  domain: portfolio.site?.domain || 'www.emiryafi.dev',
   currentYear: new Date().getFullYear(),
 });
 

@@ -36,6 +36,19 @@
   locals.SVG = SVG;
 %>
 <body class="bg-[#07070b] text-white antialiased">
+  <!-- ═══════════ Liquid glass SVG filter ═══════════ -->
+  <svg class="hidden" aria-hidden="true">
+    <defs>
+      <filter id="radio-glass" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.05 0.05" numOctaves="1" seed="1" result="turbulence" />
+        <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
+        <feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="30" x-channel-selector="R" y-channel-selector="B" result="displaced" />
+        <feGaussianBlur in="displaced" stdDeviation="2" result="finalBlur" />
+        <feComposite in="finalBlur" in2="finalBlur" operator="over" />
+      </filter>
+    </defs>
+  </svg>
+
   <!-- ═══════════ Background scene: chrome/metallic orbs ═══════════ -->
   <div class="bg-scene" aria-hidden="true">
     <div class="orb orb-1"></div>
@@ -55,9 +68,8 @@
     <%- include('partials/topbar') %>
 
     <main class="widget-grid">
-      <%- include('partials/hero', { profile: portfolio.profile, socials: portfolio.socials }) %>
-      <%- include('partials/techstack', { techStack: portfolio.techStack }) %>
-      <%- include('partials/about', { about: portfolio.about }) %>
+      <%- include('partials/hero', { profile: portfolio.profile, socials: portfolio.socials, techStack: portfolio.techStack }) %>
+      <%- include('partials/about', { about: portfolio.about, profile: portfolio.profile }) %>
       <%- include('partials/projects', { projects: portfolio.projects }) %>
       <%- include('partials/contact', { contact: portfolio.contact, socials: portfolio.socials }) %>
     </main>

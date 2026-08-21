@@ -80,10 +80,8 @@ function saveMessage(message) {
 /* GET / → render halaman utama */
 app.get('/', (_req, res) => {
   const portfolio = loadPortfolio();
-  const domain = process.env.SITE_DOMAIN || portfolio.site?.domain || 'https://portoemir.netlify.app/';
   res.render('index', {
     portfolio,
-    domain,
     currentYear: new Date().getFullYear(),
   });
 });

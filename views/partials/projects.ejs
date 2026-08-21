@@ -1,49 +1,55 @@
-<section class="glass widget projects reveal" id="projects" aria-label="Proyek unggulan">
-  <div class="widget-head">
+<section class="stacking-cards-section" id="projects" aria-label="Proyek unggulan">
+  <!-- Section header -->
+  <div class="stacking-header reveal">
     <h3 class="widget-title">Featured Projects</h3>
     <span class="widget-badge"><%= projects.length %></span>
   </div>
 
-  <div class="project-grid">
+  <div class="stacking-cards-wrapper">
     <% projects.forEach((p, i) => { %>
-      <article class="project-card hover-lift">
-        <!-- Media -->
-        <div class="project-media">
-          <img src="<%= p.image %>" alt="Thumbnail <%= p.title %>" loading="lazy" />
-          <span class="project-cat"><%= p.category %></span>
-          <button class="media-detail" type="button" data-project="<%= i %>" aria-label="Lihat detail <%= p.title %>">
-            Lihat Detail
-            <%- SVG('arrowRight', 'w-3 h-3') %>
-          </button>
-        </div>
+      <div class="stacking-card-container" data-index="<%= i %>" data-color="<%= p.accent %>">
+        <div class="stacking-card" data-index="<%= i %>">
+          <!-- Electric border effect -->
+          <div class="stacking-card-border" style="--accent: <%= p.accent %>"></div>
 
-        <!-- Body -->
-        <div class="project-body">
-          <div class="project-head">
-            <h4 class="project-title"><%= p.title %></h4>
+          <!-- Main card content -->
+          <div class="stacking-card-inner">
+            <!-- Glass reflections -->
+            <div class="card-glass-top"></div>
+            <div class="card-glass-shine"></div>
+            <div class="card-glass-side"></div>
+            <div class="card-glass-texture"></div>
+
+            <!-- Card content -->
+            <div class="stacking-card-content">
+              <div class="stacking-card-left">
+                <img class="stacking-card-image" src="<%= p.aiImage || p.image %>" alt="Illustration <%= p.title %>" loading="lazy" />
+              </div>
+              <div class="stacking-card-right">
+                <span class="project-cat"><%= p.category %></span>
+                <h4 class="stacking-card-title"><%= p.title %></h4>
+                <p class="stacking-card-subtitle" style="color: <%= p.accent %>"><%= p.subtitle %></p>
+                <p class="stacking-card-desc"><%= p.description %></p>
+                <div class="stacking-card-tags">
+                  <% p.tags.forEach(t => { %><span class="mini-chip"><%= t %></span><% }) %>
+                </div>
+                <button class="btn-details liquid-glass-btn" type="button" data-project="<%= i %>">
+                  Details
+                  <%- SVG('arrowRight', 'w-3.5 h-3.5') %>
+                </button>
+              </div>
+            </div>
           </div>
-          <p class="project-subtitle" style="color: <%= p.accent %>"><%= p.subtitle %></p>
-          <p class="project-desc"><%= p.description %></p>
-
-          <div class="project-tags">
-            <% p.tags.forEach(t => { %><span class="mini-chip"><%= t %></span><% }) %>
-          </div>
-
-          <button class="btn-details" type="button" data-project="<%= i %>">
-            Details
-            <%- SVG('arrowRight', 'w-3.5 h-3.5') %>
-          </button>
         </div>
-      </article>
+      </div>
     <% }) %>
   </div>
 </section>
 
+<!-- Modals -->
 <% projects.forEach((p, i) => { %>
-  <!-- Modal detail: <%= p.title %> -->
   <div class="detail-modal" id="project-modal-<%= i %>" role="dialog" aria-modal="true" aria-labelledby="detail-title-<%= i %>" hidden>
     <div class="detail-backdrop" data-close-modal></div>
-
     <div class="detail-window" role="document">
       <header class="detail-header">
         <span class="detail-cat"><%= p.category %></span>
@@ -51,24 +57,23 @@
           <%- SVG('close', 'w-4 h-4') %>
         </button>
       </header>
-
       <div class="detail-content">
+        <!-- Foto project asli -->
+        <div class="detail-project-image">
+          <img src="<%= p.image %>" alt="Screenshot <%= p.title %>" loading="lazy" />
+        </div>
         <h2 class="detail-title" id="detail-title-<%= i %>"><%= p.title %></h2>
         <p class="detail-subtitle" style="color: <%= p.accent %>"><%= p.subtitle %></p>
-
         <% if (p.detail) { %>
           <p class="detail-intro"><%= p.detail.intro %></p>
-
           <section class="detail-section">
             <h3>// PROBLEM</h3>
             <p><%= p.detail.problem %></p>
           </section>
-
           <section class="detail-section">
             <h3>// SOLUTION</h3>
             <p><%= p.detail.solution %></p>
           </section>
-
           <% if (p.detail.features && p.detail.features.length) { %>
             <section class="detail-section">
               <h3>// FEATURES</h3>
@@ -82,7 +87,6 @@
               </ul>
             </section>
           <% } %>
-
           <% if (p.detail.technology && p.detail.technology.length) { %>
             <section class="detail-section">
               <h3>// TECHNOLOGY</h3>
